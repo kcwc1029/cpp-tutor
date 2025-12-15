@@ -2,7 +2,6 @@
 #include <string>
 using namespace std;
 
-
 int main(){
     string s;
     bool is_start = true;
