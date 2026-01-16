@@ -1,47 +1,34 @@
 #include <stdio.h>
+#include <stdbool.h>
 
-void f(int arr[], int current, int capacity, int newElement){
-    int index = 0; // 找到合適的位置
-    // STEP1 找到合適的位置
-    for(int i=0;i<current;i++){
-        if(newElement<arr[i]){
-            index = i;
+
+// 一維陣列中尋找特定值
+// 如果找到，返回【他是第幾個】
+// 沒找到，返回-1
+int main(){
+    int score[5] = {87, 66, 90, 65, 70}; 
+    int key = 90; // 我要尋找的目標
+    bool flag = true; 
+    for(int i=0;i<5;i++){
+        // key
+        // score[i]
+        if(key == score[i]){
+            printf("%d", i);
+            flag = false;
             break;
         }
     }
-    printf("%d ", index);
-
-    // STEP2 (把後面數字，一個一個往後班)
-    for(int j=capacity;j>index;j--){
-        arr[j] = arr[j-1];
+    // 檢查flag是否還是為true
+    // 如果為true，代表還沒有找到東西
+    // 如果為false，代表說已經找到了
+    if(flag == true){
+        printf("%d", -1);
     }
-    // STEP3 插入
-    arr[index] = newElement;
-    current++;
 }
 
-int main(){
-    // 這個陣列本身的最大數量
-    const int capacity = 10;
-    // 這個陣列目前大小
-    int current = 5;
-    // 陣列
-    int arr[10] = {10, 20, 30, 40, 50};
-
-    // 印出第一遍
-    for(int i=0;i<current;i++){
-        printf("%d ", arr[i]);
-    }
-    // 換行
-    printf("\n");
-    //  插入一個元素
-    int newElement = 15;
-    f(arr, current, capacity, newElement);
-
-     // 印出第二遍
-    for(int i=0;i<current+1;i++){
-        printf("%d ", arr[i]);
-    }
-    // 換行
-    return 0;
-}
+// 資料型太
+// int 整數
+// 浮點 float
+// 字元 char
+// 字串 string 
+// 布林直 對1/錯0 bool
